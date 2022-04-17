@@ -16,7 +16,7 @@ class TPQueue {// реализация шаблона очереди с прио
          if (last - first >= size)
              throw std::string("Full!");
          else
-             arr[(last++) % size] = x;
+             arr[(last++) % size]=x;
      }
      T pop() {
        return arr[(first++) % size];
