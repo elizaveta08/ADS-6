@@ -30,7 +30,7 @@ class TPQueue {// реализация шаблона очереди с прио
      T back() {
          return arr[(last-1)%size];
      }
-}
+};
 struct SYM {
   char ch;
   int prior;
