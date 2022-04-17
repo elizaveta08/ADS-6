@@ -11,12 +11,18 @@ class TPQueue {// реализация шаблона очереди с прио
     int last;   // Указатель на конец очереди
 
  public:
-      TPQueue():first(0), last(0) { }
+     TPQueue():first(0), last(0) { }
      void push(T x) {
          if (last - first >= size)
              throw std::string("Full!");
-         else
-             arr[(last++) % size]=x;
+         else {
+            int q = last;
+            while ((--q >= first) && (arr[q % size].prior < x.prior)) {
+                arr[(q + 1) % size] = arr[q % size];
+            }
+            arr[(q + 1) % size] = x;
+            last++;
+         }
      }
      T pop() {
        return arr[(first++) % size];
