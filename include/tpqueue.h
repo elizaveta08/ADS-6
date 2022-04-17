@@ -13,9 +13,9 @@ class TPQueue {// реализация шаблона очереди с прио
  public:
      TPQueue():first(0), last(0) { }
      void push(T x) {
-         if (last - first >= size)
+         if (last - first >= size) {
              throw std::string("Full!");
-         else {
+         } else {
             int q = last;
             while ((--q >= first) && (arr[q % size].prior < x.prior)) {
                 arr[(q + 1) % size] = arr[q % size];
